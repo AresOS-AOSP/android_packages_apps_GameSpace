@@ -122,4 +122,9 @@
          <item>performance</item>
          <item>powersave</item>
      </string-array>
+
+    <!-- Heads-Up -->
+    <string name="heads_up_title">Heads-up</string>
+    <string name="heads_up_disabled_summary">Disable Notification heads-up while in-game</string>
+    <string name="heads_up_disabled_title">Disable heads-up</string>
 </resources>
