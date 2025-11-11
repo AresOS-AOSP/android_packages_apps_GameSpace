@@ -127,4 +127,8 @@
     <string name="heads_up_title">Heads-up</string>
     <string name="heads_up_disabled_summary">Disable Notification heads-up while in-game</string>
     <string name="heads_up_disabled_title">Disable heads-up</string>
+
+    <!-- Call Overlay -->
+    <string name="call_overlay_enabled_title">Call overlay</string>
+    <string name="call_overlay_enabled_summary">Show minimal call overlay to answer/reject calls</string>
 </resources>
