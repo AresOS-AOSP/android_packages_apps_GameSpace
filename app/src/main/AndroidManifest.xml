@@ -77,6 +77,12 @@
             android:exported="false"
             android:label="@string/app_selector_label" />
 
+        <activity
+            android:name=".preferences.quickstart.QuickStartAppsActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:label="@string/quick_start_apps_title" />
+
         <service
             android:name=".gamebar.GameSpaceService"
             android:exported="false" />
