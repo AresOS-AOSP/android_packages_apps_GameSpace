@@ -33,15 +33,12 @@ import dagger.hilt.android.AndroidEntryPoint
 import io.chaldeaprjkt.gamespace.R
 import io.chaldeaprjkt.gamespace.data.GameOptimizationManager
 import io.chaldeaprjkt.gamespace.preferences.AppListPreferences
-import io.chaldeaprjkt.gamespace.preferences.QuickStartAppPreference
-import io.chaldeaprjkt.gamespace.preferences.QuickStartAppPreferenceDialogFragment
 import io.chaldeaprjkt.gamespace.preferences.appselector.AppSelectorActivity
 
 import javax.inject.Inject
 
 @AndroidEntryPoint(SettingsBasePreferenceFragment::class)
 class SettingsFragment : Hilt_SettingsFragment(),
-    QuickStartAppPreferenceDialogFragment.QuickStartAppListener,
     Preference.OnPreferenceChangeListener {
 
     private var apps: AppListPreferences? = null
@@ -113,25 +110,6 @@ class SettingsFragment : Hilt_SettingsFragment(),
         super.onResume()
         apps?.updateAppList()
     }
-
-    override fun onDisplayPreferenceDialog(preference: Preference) {
-        if (preference is QuickStartAppPreference) {
-            val dialogFragment =
-                QuickStartAppPreferenceDialogFragment.newInstance(preference.key)
-            dialogFragment.setListener(this)
-            dialogFragment.setTargetFragment(this, 0)
-            dialogFragment.show(parentFragmentManager, "QuickStartAppPreferenceDialogFragment")
-        } else {
-            super.onDisplayPreferenceDialog(preference)
-        }
-    }
-
-    override fun getSavedQuickStartApps(): String {
-        val prefs = preferenceManager.sharedPreferences ?: return ""
-        return prefs.getString(io.chaldeaprjkt.gamespace.data.AppSettings.KEY_QUICK_START_APPS, "") ?: ""
-    }
-
-    override fun saveQuickStartApps(apps: String) { /* no-op */ }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
         when (preference.key) {

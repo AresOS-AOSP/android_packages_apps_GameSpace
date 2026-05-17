@@ -118,15 +118,14 @@
             app:min="5"
             app:units="%" />
 
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="quick_start_apps_category">
-
-        <io.chaldeaprjkt.gamespace.preferences.QuickStartAppPreference
+        <Preference
             android:key="quick_start_apps"
             android:title="@string/quick_start_apps_title"
-            android:summary="@string/quick_start_apps_summary" />
+            android:summary="@string/quick_start_apps_summary">
+            <intent
+                android:targetPackage="io.chaldeaprjkt.gamespace"
+                android:targetClass="io.chaldeaprjkt.gamespace.preferences.quickstart.QuickStartAppsActivity" />
+        </Preference>
 
     </PreferenceCategory>
 
